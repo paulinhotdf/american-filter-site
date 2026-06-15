@@ -1,5 +1,11 @@
 /* American Filter — interações */
 (function(){
+  // ---- Sempre abrir no topo (Safari restaura a última rolagem) ----
+  try { if ("scrollRestoration" in history) history.scrollRestoration = "manual"; } catch(_){}
+  window.scrollTo(0, 0);
+  window.addEventListener("load", function(){ window.scrollTo(0, 0); });
+  window.addEventListener("pageshow", function(e){ if(e.persisted) window.scrollTo(0,0); });
+
   // ---- WhatsApp ----
   var WA = "5512982855000"; // <- número American Filter / Tudo de Filtro (confirmar)
   document.querySelectorAll("[data-wa]").forEach(function(el){
