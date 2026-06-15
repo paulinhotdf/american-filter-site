@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>American Filter — Veja antes de decidir</title>
+<meta name="description" content="Entenda em poucos minutos por que o filtro de entrada American Filter trata a água de toda a casa — e dê o próximo passo." />
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<style>
+  .vsl{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:clamp(80px,12vh,140px) var(--pad) clamp(40px,8vh,80px);text-align:center;
+    background:radial-gradient(circle at 50% 0%,#15151a,#070708 70%)}
+  .vsl__brand{font-weight:600;letter-spacing:.18em;margin-bottom:2rem}
+  .vsl__brand .s{font-size:.7rem;letter-spacing:.5em;color:var(--mut)}
+  .vsl__eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1rem}
+  .vsl h1{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,4.6vw,3.4rem);line-height:1.06;max-width:18ch;margin:0 auto 2rem}
+  .vsl__player{position:relative;width:min(900px,100%);aspect-ratio:16/9;border-radius:10px;overflow:hidden;
+    border:1px solid var(--line);background:#000;box-shadow:0 40px 100px -30px rgba(0,0,0,.8)}
+  .vsl__player video{width:100%;height:100%;display:block;object-fit:cover}
+  .vsl__cta{margin-top:2.4rem;max-width:560px;width:100%;transition:opacity .8s,transform .8s}
+  .vsl__cta.locked{opacity:1}
+  .vsl__locked{display:flex;flex-direction:column;align-items:center;gap:.8rem;color:var(--mut)}
+  .vsl__bar{width:100%;max-width:420px;height:4px;border-radius:3px;background:rgba(255,255,255,.1);overflow:hidden}
+  .vsl__bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold-soft),var(--gold));transition:width .3s}
+  .vsl__lockmsg{font-size:.85rem;letter-spacing:.04em}
+  .vsl__unlock{opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .vsl__unlock.show{opacity:1;transform:none;pointer-events:auto}
+  .vsl__unlock p{font-family:var(--serif);font-size:1.5rem;color:var(--gold-soft);margin-bottom:1.2rem}
+  .vsl__badges{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;margin-top:2.6rem;color:var(--mut);font-size:.78rem;letter-spacing:.06em}
+  .vsl__badges span{border:1px solid var(--line);padding:.5em 1em;border-radius:3px}
+  .vsl__skip{margin-top:1rem;font-size:.78rem;color:#56544e}
+  .vsl__skip a{color:var(--mut);border-bottom:1px solid transparent}
+  .vsl__skip a:hover{color:var(--gold);border-color:var(--gold)}
+</style>
+</head>
+<body>
+<section class="vsl">
+  <a href="index.html" class="vsl__brand"><span class="nav__brand-main">AMERICAN</span> <span class="nav__brand-shield gold">◆</span> <span class="s">FILTER</span></a>
+  <p class="vsl__eyebrow">Antes de decidir, assista</p>
+  <h1>Tudo o que você precisa saber sobre a água da sua casa</h1>
+
+  <div class="vsl__player">
+    <video id="vslVideo" playsinline preload="metadata" poster="assets/img/hero_poster.jpg" controlslist="nodownload noplaybackrate" controls>
+      <source src="assets/video/vsl.mp4" type="video/mp4" />
+      <source src="assets/video/beneficios.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <div class="vsl__cta">
+    <div class="vsl__locked" id="vslLocked">
+      <div class="vsl__bar"><i id="vslProg"></i></div>
+      <p class="vsl__lockmsg" id="vslLockMsg">Assista até o final para liberar o atendimento</p>
+    </div>
+    <div class="vsl__unlock" id="vslUnlock">
+      <p>Você viu tudo. Agora dê o próximo passo.</p>
+      <a class="btn btn--gold" href="#" data-wa="Olá! Assisti a apresentação do American Filter e quero falar com um especialista.">Falar com um especialista</a>
+    </div>
+  </div>
+
+  <div class="vsl__badges">
+    <span>Aço inox 304</span><span>Certificação INMETRO</span><span>10 anos de garantia</span><span>Água em todas as torneiras</span>
+  </div>
+  <p class="vsl__skip">Já conhece? <a href="index.html#onde-comprar">Ir direto para onde comprar →</a></p>
+</section>
+
+<script>
+  var WA="5512982855000";
+  var v=document.getElementById("vslVideo"), locked=document.getElementById("vslLocked"),
+      unlock=document.getElementById("vslUnlock"), prog=document.getElementById("vslProg"),
+      lockMsg=document.getElementById("vslLockMsg"), revealed=false;
+  function reveal(){ if(revealed)return; revealed=true; unlock.classList.add("show"); locked.style.display="none"; unlock.scrollIntoView({behavior:"smooth",block:"center"}); }
+  v.addEventListener("timeupdate", function(){
+    if(!v.duration) return;
+    var p=v.currentTime/v.duration;
+    prog.style.width=Math.min(100,p*100)+"%";
+    var left=Math.max(0,Math.ceil(v.duration-v.currentTime));
+    lockMsg.textContent= p<0.9 ? ("Continue assistindo — faltam ~"+left+"s para liberar") : "Quase lá…";
+    if(p>=0.92) reveal();
+  });
+  v.addEventListener("ended", reveal);
+  document.querySelectorAll("[data-wa]").forEach(function(el){ el.href="https://wa.me/"+WA+"?text="+encodeURIComponent(el.getAttribute("data-wa")); el.target="_blank"; el.rel="noopener"; });
+</script>
+</body>
+</html>
