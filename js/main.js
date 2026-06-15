@@ -66,19 +66,18 @@
     });
   }
 
-  // ---- Visualizador 360° (arrastar) + escala por modelo ----
+  // ---- Visualizador 360° (arrastar) + escala + Home/Pro por modelo ----
   (function(){
     var img = document.getElementById("spinImg");
     var viewer = document.getElementById("viewer");
     if(!img || !viewer) return;
-    var N = 36, srcs = [], idx = 0;
-    for(var i=1;i<=N;i++){
-      var name = "assets/img/spin/f" + (i<10?"0"+i:i) + ".jpg";
-      srcs.push(name); var pre = new Image(); pre.src = name;
-    }
+    var N = 36;
+    function build(dir){ var a=[]; for(var i=1;i<=N;i++){ var n=dir+"/f"+(i<10?"0"+i:i)+".jpg"; a.push(n); var p=new Image(); p.src=n; } return a; }
+    var HOME = build("assets/img/spin"), PRO = build("assets/img/spin-pro");
+    var srcs = HOME, idx = 0;
     function show(i){ idx = ((i % N) + N) % N; img.src = srcs[idx]; }
-    var dragging=false, startX=0, startIdx=0, auto=null, scaleStr="scale(0.78,0.78)";
-    img.style.transform = scaleStr;
+    var dragging=false, startX=0, startIdx=0, auto=null;
+    img.style.transform = "scale(0.78,0.78)";
     function startAuto(){ stopAuto(); auto = setInterval(function(){ show(idx+1); }, 110); }
     function stopAuto(){ if(auto){ clearInterval(auto); auto=null; } }
     viewer.addEventListener("pointerdown", function(e){
@@ -92,11 +91,12 @@
     window.addEventListener("pointerup", function(){
       if(dragging){ dragging=false; setTimeout(startAuto, 3000); }
     });
-    // escala conforme o modelo selecionado (altura e diâmetro reais)
+    // troca Home/Pro + escala conforme o modelo (altura e diâmetro reais)
     window.addEventListener("af:model", function(e){
       var d=e.detail.d, h=e.detail.h;
-      scaleStr = "scale(" + (0.78*d/10).toFixed(3) + "," + (0.78*h/54).toFixed(3) + ")";
-      img.style.transform = scaleStr;
+      srcs = (d>=12) ? PRO : HOME;
+      show(idx);
+      img.style.transform = "scale(" + (0.78*d/10).toFixed(3) + "," + (0.78*h/54).toFixed(3) + ")";
     });
     startAuto();
   })();

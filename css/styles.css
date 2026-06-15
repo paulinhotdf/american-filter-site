@@ -66,10 +66,15 @@ em{font-style:italic;color:var(--gold-soft)}
 @keyframes scroll{0%{opacity:0;top:8px}40%{opacity:1}80%{opacity:0;top:20px}}
 
 /* MANIFESTO */
-.manifesto{padding:clamp(90px,16vh,200px) var(--pad);max-width:1100px;margin:0 auto;text-align:center}
-.manifesto__text{font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,4vw,3rem);line-height:1.3}
+.manifesto{position:relative;padding:clamp(110px,22vh,260px) var(--pad);text-align:center;overflow:hidden;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.manifesto::before{content:"";position:absolute;inset:0;z-index:0;
+  background:url("../assets/img/jornada.jpg") center/cover;transform:scale(1.05);will-change:transform}
+.manifesto::after{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(90deg,rgba(7,7,8,.92),rgba(7,7,8,.6) 55%,rgba(7,7,8,.85)),linear-gradient(0deg,#070708,transparent 40%,transparent 60%,#070708)}
+.manifesto__text{position:relative;z-index:2;max-width:1000px;margin:0 auto;
+  font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,4vw,3rem);line-height:1.3;color:var(--mut)}
 .manifesto__text span{color:var(--ink)}
-.manifesto__text{color:var(--mut)}
 
 /* BENEFITS */
 .benefits__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
