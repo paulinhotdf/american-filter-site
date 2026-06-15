@@ -49,6 +49,23 @@
     b.addEventListener("click", function(){ setModel(+b.dataset.i); });
   });
 
+  // ---- Formulário "Onde comprar" → WhatsApp do distribuidor ----
+  var buyForm = document.getElementById("buyForm");
+  if(buyForm){
+    buyForm.addEventListener("submit", function(e){
+      e.preventDefault();
+      var f = buyForm;
+      if(!f.nome.value || !f.cidade.value || !f.fone.value){ f.reportValidity && f.reportValidity(); return; }
+      var msg = "Olá! Quero comprar o American Filter (filtro de entrada).\n\n"
+        + "Nome: " + f.nome.value + "\n"
+        + "Cidade/UF: " + f.cidade.value + "\n"
+        + "WhatsApp: " + f.fone.value + "\n"
+        + "Modelo: " + f.modelo.value + "\n"
+        + "Aplicação: " + f.aplicacao.value;
+      window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(msg), "_blank");
+    });
+  }
+
   // ---- GSAP subtle parallax (optional) ----
   if(window.gsap && window.ScrollTrigger){
     gsap.registerPlugin(ScrollTrigger);

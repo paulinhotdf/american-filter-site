@@ -38,7 +38,7 @@
     <a href="#linha">A Linha</a>
     <a href="revendedores.html">Revendedores</a>
   </nav>
-  <a class="btn btn--gold nav__cta" href="#" data-wa="Olá! Quero um orçamento do American Filter, o filtro de entrada que trata a água da casa toda.">Solicitar orçamento</a>
+  <a class="btn btn--gold nav__cta" href="#onde-comprar">Onde comprar</a>
   <button class="nav__burger" id="burger" aria-label="Menu"><span></span><span></span></button>
 </header>
 
@@ -53,7 +53,7 @@
     <h1 class="hero__title reveal">Água filtrada<br/>em todas as torneiras</h1>
     <p class="hero__sub reveal">Um único filtro no cavalete, junto ao hidrômetro. Toda a água que entra no imóvel passa por ele — antes da caixa d'água e de cada torneira da casa.</p>
     <div class="hero__actions reveal">
-      <a class="btn btn--gold" href="#" data-wa="Olá! Quero um orçamento do American Filter (filtro de entrada).">Solicitar orçamento</a>
+      <a class="btn btn--gold" href="#onde-comprar">Onde comprar</a>
       <a class="btn btn--ghost" href="#linha">Ver a linha</a>
     </div>
   </div>
@@ -200,6 +200,33 @@
   <div class="hero__actions reveal">
     <a class="btn btn--gold" href="assets/docs/american-filter-catalogo.pdf" download>Baixar catálogo + ficha técnica (PDF)</a>
     <a class="btn btn--ghost" href="#" data-wa="Olá! Quero a ficha técnica e um orçamento do American Filter.">Falar com especialista</a>
+  </div>
+</section>
+
+<!-- ONDE COMPRAR -->
+<section class="section comprar" id="onde-comprar">
+  <div class="comprar__grid">
+    <div class="reveal">
+      <p class="eyebrow">Onde comprar</p>
+      <h2 class="h2">Compre com um<br/>distribuidor autorizado</h2>
+      <p class="lead">Preço e condições são tratados diretamente com o distribuidor autorizado American Filter. Preencha ao lado e te conectamos com o distribuidor mais próximo de você — com atendimento, instalação e garantia oficial.</p>
+      <p class="comprar__alt">Já sabe sua região? <a href="revendedores.html">Ver revendedores &rarr;</a></p>
+    </div>
+    <form class="form" id="buyForm" novalidate>
+      <div class="form__row"><label>Nome<input name="nome" required placeholder="Seu nome" /></label></div>
+      <div class="form__row"><label>Cidade / Estado<input name="cidade" required placeholder="Ex.: São José dos Campos / SP" /></label></div>
+      <div class="form__row"><label>WhatsApp<input name="fone" required placeholder="(00) 00000-0000" /></label></div>
+      <div class="form__two">
+        <label>Modelo de interesse
+          <select name="modelo"><option value="Ainda não sei">Ainda não sei</option><option>8×35 (1.000 L/h)</option><option>10×54 (2.500 L/h)</option><option>12×54 (3.500 L/h)</option><option>14×65 (5.000 L/h)</option></select>
+        </label>
+        <label>Aplicação
+          <select name="aplicacao"><option>Residência</option><option>Condomínio</option><option>Indústria / Comércio</option><option>Revenda</option></select>
+        </label>
+      </div>
+      <button type="submit" class="btn btn--gold form__submit">Quero comprar</button>
+      <p class="form__note">Ao enviar, você fala direto com nosso distribuidor pelo WhatsApp.</p>
+    </form>
   </div>
 </section>
 
