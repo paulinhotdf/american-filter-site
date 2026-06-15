@@ -20,7 +20,7 @@
 {"@context":"https://schema.org","@type":"Product","name":"American Filter — Filtro de Entrada de Água","image":"https://paulinhotdf.github.io/american-filter-site/assets/img/linha_proporcao.jpg","brand":{"@type":"Brand","name":"American Filter"},"manufacturer":{"@type":"Organization","name":"Tudo de Filtro"},"material":"Aço inox 304","description":"Filtro de entrada instalado no cavalete que trata toda a água do imóvel, retendo sedimentos de 5 a 15 mícrons (barro, areia, silte, lodo e ferrugem). Aço inox 304, elementos de quartzo e zeólita, válvula Runxin manual ou automática.","additionalProperty":[{"@type":"PropertyValue","name":"Certificação","value":"Inmetro"},{"@type":"PropertyValue","name":"Garantia","value":"10 anos"},{"@type":"PropertyValue","name":"Faixa de retenção","value":"5 a 15 mícrons"},{"@type":"PropertyValue","name":"Pressão de trabalho","value":"1 a 3 kgf/cm²"}],"hasMeasurement":[{"@type":"QuantitativeValue","name":"Vazão 8x35","value":1000,"unitText":"litros/hora"},{"@type":"QuantitativeValue","name":"Vazão 10x54","value":2500,"unitText":"litros/hora"},{"@type":"QuantitativeValue","name":"Vazão 12x54","value":3500,"unitText":"litros/hora"},{"@type":"QuantitativeValue","name":"Vazão 14x65","value":5000,"unitText":"litros/hora"}]}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"O que é um filtro de entrada de água?","acceptedAnswer":{"@type":"Answer","text":"É um filtro instalado no cavalete, junto ao hidrômetro, antes da caixa d'água. Toda a água que entra no imóvel passa por ele, garantindo água filtrada em todas as torneiras."}},{"@type":"Question","name":"O American Filter remove barro, areia e ferrugem?","acceptedAnswer":{"@type":"Answer","text":"Sim. Retém sedimentos de 5 a 15 mícrons: barro, areia, silte, lodo e ferrugem. Não remove bactérias, vírus ou substâncias dissolvidas."}},{"@type":"Question","name":"Qual a vazão e a pressão dos modelos do American Filter?","acceptedAnswer":{"@type":"Answer","text":"8x35 entrega 1.000 L/h, 10x54 entrega 2.500 L/h, 12x54 entrega 3.500 L/h e 14x65 entrega 5.000 L/h. A pressão de trabalho é de 1 a 3 kgf/cm² em todos os modelos."}},{"@type":"Question","name":"A válvula é manual ou automática?","acceptedAnswer":{"@type":"Answer","text":"As duas opções existem: válvula Runxin manual (linha F56) monocomando com by-pass, ou automática com retrolavagem programada por tempo a partir de 2 m³/h."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"O que é um filtro de entrada de água?","acceptedAnswer":{"@type":"Answer","text":"É um filtro instalado no cavalete, junto ao hidrômetro, antes da caixa d'água. Toda a água que entra no imóvel passa por ele, garantindo água filtrada em todas as torneiras."}},{"@type":"Question","name":"O American Filter remove barro, areia e ferrugem?","acceptedAnswer":{"@type":"Answer","text":"Sim. Retém sedimentos de 5 a 15 mícrons: barro, areia, silte, lodo e ferrugem. Não remove bactérias, vírus ou substâncias dissolvidas."}},{"@type":"Question","name":"Quais são os modelos, vazões e pressão do American Filter?","acceptedAnswer":{"@type":"Answer","text":"Home Filter 1000 (8x35, 1.000 L/h), Home Filter 2500 (10x54, 2.500 L/h), Pro Filter 3500 (12x54, 3.500 L/h) e Pro Filter 5000 (14x65, 5.000 L/h). Pressão de trabalho de 1 a 3 kgf/cm² em todos os modelos."}},{"@type":"Question","name":"A válvula é manual ou automática?","acceptedAnswer":{"@type":"Answer","text":"As duas opções existem: válvula Runxin manual (linha F56) monocomando com by-pass, ou automática com retrolavagem programada por tempo a partir de 2 m³/h."}}]}
 </script>
 </head>
 <body>
@@ -147,24 +147,22 @@
   </div>
   <div class="linha__stage">
     <div class="viewer" id="viewer">
-      <video class="viewer__media" autoplay loop muted playsinline poster="assets/img/unidade_view.jpg">
-        <source src="assets/video/unidade-giro.mp4" type="video/mp4" />
-        <img src="assets/img/unidade_view.jpg" alt="Filtro de entrada American Filter em aço inox 304 com rótulo Home Filter" />
-      </video>
+      <img class="viewer__media" id="spinImg" src="assets/img/spin/f00.jpg" alt="Filtro de entrada American Filter, gire 360°" draggable="false" />
+      <p class="viewer__hint">arraste para girar</p>
     </div>
     <div class="linha__panel">
       <div class="model" id="modelInfo">
-        <h3 class="model__name" id="mName">10×54</h3>
-        <p class="model__dim" id="mDim">Ø 10" × 54" &nbsp;·&nbsp; Ø 25,4 × 137,2 cm</p>
+        <h3 class="model__name" id="mName">Home Filter 2500</h3>
+        <p class="model__dim" id="mDim">10" × 54" &nbsp;·&nbsp; Ø 25,4 × 137,2 cm</p>
         <p class="model__flow" id="mFlow">até 2.500 litros/hora</p>
         <p class="model__press">Pressão de trabalho: 1 a 3 kgf/cm²</p>
         <p class="model__desc" id="mDesc">Apartamentos e casas de porte médio, com fluxo constante.</p>
       </div>
       <div class="model__tabs" id="modelTabs">
-        <button class="mtab" data-i="0">8×35</button>
-        <button class="mtab is-active" data-i="1">10×54</button>
-        <button class="mtab" data-i="2">12×54</button>
-        <button class="mtab" data-i="3">14×65</button>
+        <button class="mtab" data-i="0">Home 1000</button>
+        <button class="mtab is-active" data-i="1">Home 2500</button>
+        <button class="mtab" data-i="2">Pro 3500</button>
+        <button class="mtab" data-i="3">Pro 5000</button>
       </div>
       <a class="btn btn--gold" href="#" data-wa="Olá! Quero ajuda pra escolher o tamanho do American Filter pro meu imóvel.">Descobrir o tamanho ideal</a>
     </div>
@@ -181,12 +179,12 @@
   </div>
   <div class="ficha__wrap reveal">
     <table>
-      <thead><tr><th>Modelo</th><th>Ø × Altura (pol)</th><th>Ø × Altura (cm)</th><th>Vazão</th><th>Pressão de trabalho</th><th>Aplicação</th></tr></thead>
+      <thead><tr><th>Modelo</th><th>Medida (pol)</th><th>Medida (cm)</th><th>Vazão</th><th>Pressão de trabalho</th><th>Aplicação</th></tr></thead>
       <tbody>
-        <tr><td>8×35</td><td>8" × 35"</td><td>20,3 × 88,9 cm</td><td class="fflow">1.000 L/h</td><td>1 a 3 kgf/cm²</td><td>Residências e comércios</td></tr>
-        <tr><td>10×54</td><td>10" × 54"</td><td>25,4 × 137,2 cm</td><td class="fflow">2.500 L/h</td><td>1 a 3 kgf/cm²</td><td>Apartamentos e casas médias</td></tr>
-        <tr><td>12×54</td><td>12" × 54"</td><td>30,5 × 137,2 cm</td><td class="fflow">3.500 L/h</td><td>1 a 3 kgf/cm²</td><td>Casas grandes / alto consumo</td></tr>
-        <tr><td>14×65</td><td>14" × 65"</td><td>35,6 × 165,1 cm</td><td class="fflow">5.000 L/h</td><td>1 a 3 kgf/cm²</td><td>Amplas, comércio, indústria, condomínio</td></tr>
+        <tr><td>Home Filter 1000</td><td>8" × 35"</td><td>Ø 20,3 × 88,9 cm</td><td class="fflow">1.000 L/h</td><td>1 a 3 kgf/cm²</td><td>Residências e comércios</td></tr>
+        <tr><td>Home Filter 2500</td><td>10" × 54"</td><td>Ø 25,4 × 137,2 cm</td><td class="fflow">2.500 L/h</td><td>1 a 3 kgf/cm²</td><td>Apartamentos e casas médias</td></tr>
+        <tr><td>Pro Filter 3500</td><td>12" × 54"</td><td>Ø 30,5 × 137,2 cm</td><td class="fflow">3.500 L/h</td><td>1 a 3 kgf/cm²</td><td>Casas grandes / alto consumo</td></tr>
+        <tr><td>Pro Filter 5000</td><td>14" × 65"</td><td>Ø 35,6 × 165,1 cm</td><td class="fflow">5.000 L/h</td><td>1 a 3 kgf/cm²</td><td>Amplas, comércio, indústria, condomínio</td></tr>
       </tbody>
     </table>
   </div>
@@ -221,7 +219,7 @@
       <div class="form__row"><label>WhatsApp<input name="fone" required placeholder="(00) 00000-0000" /></label></div>
       <div class="form__two">
         <label>Modelo de interesse
-          <select name="modelo"><option value="Ainda não sei">Ainda não sei</option><option>8×35 (1.000 L/h)</option><option>10×54 (2.500 L/h)</option><option>12×54 (3.500 L/h)</option><option>14×65 (5.000 L/h)</option></select>
+          <select name="modelo"><option value="Ainda não sei">Ainda não sei</option><option>Home Filter 1000 (1.000 L/h)</option><option>Home Filter 2500 (2.500 L/h)</option><option>Pro Filter 3500 (3.500 L/h)</option><option>Pro Filter 5000 (5.000 L/h)</option></select>
         </label>
         <label>Aplicação
           <select name="aplicacao"><option>Residência</option><option>Condomínio</option><option>Indústria / Comércio</option><option>Revenda</option></select>
@@ -302,7 +300,7 @@
   <div class="faq__list reveal">
     <details class="faq__item"><summary>O que é um filtro de entrada de água?</summary><p>É um filtro instalado no cavalete, junto ao hidrômetro, antes da caixa d'água. Toda a água que entra no imóvel passa por ele — garantindo água filtrada em todas as torneiras da casa.</p></details>
     <details class="faq__item"><summary>O American Filter remove barro, areia e ferrugem?</summary><p>Sim. Ele retém sedimentos de 5 a 15 mícrons: barro, areia, silte, lodo e ferrugem. Não remove bactérias, vírus ou substâncias dissolvidas, e não substitui purificadores para consumo.</p></details>
-    <details class="faq__item"><summary>Qual a vazão e a pressão de cada modelo?</summary><p>8×35 entrega até 1.000 L/h · 10×54 até 2.500 L/h · 12×54 até 3.500 L/h · 14×65 até 5.000 L/h. Pressão de trabalho de 1 a 3 kgf/cm² em todos os modelos.</p></details>
+    <details class="faq__item"><summary>Quais são os modelos, vazões e pressão?</summary><p>Home Filter 1000 (8"×35", 1.000 L/h) · Home Filter 2500 (10"×54", 2.500 L/h) · Pro Filter 3500 (12"×54", 3.500 L/h) · Pro Filter 5000 (14"×65", 5.000 L/h). Pressão de trabalho de 1 a 3 kgf/cm² em todos.</p></details>
     <details class="faq__item"><summary>A válvula é manual ou automática?</summary><p>Você escolhe. Versão manual Runxin (linha F56), monocomando com by-pass; ou versão automática, com retrolavagem programada por tempo, a partir de 2 m³/h.</p></details>
     <details class="faq__item"><summary>Precisa de manutenção?</summary><p>Pouca. A retrolavagem limpa a mídia (quartzo e zeólita) e devolve a vazão original. O corpo em aço inox 304 tem 10 anos de garantia.</p></details>
   </div>
