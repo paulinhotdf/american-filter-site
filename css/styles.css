@@ -114,8 +114,7 @@ em{font-style:italic;color:var(--gold-soft)}
 .linha{}
 .linha__stage{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(30px,5vw,70px);align-items:center}
 .viewer{position:relative;aspect-ratio:1/1;border:1px solid var(--line);border-radius:10px;
-  background:radial-gradient(circle at 50% 35%,#1b1b1f,#0b0b0c 70%);overflow:hidden;cursor:grab}
-.viewer:active{cursor:grabbing}
+  background:radial-gradient(circle at 50% 35%,#1b1b1f,#0b0b0c 70%);overflow:hidden}
 .viewer canvas{display:block;width:100%!important;height:100%!important}
 .viewer__fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .viewer__hint{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:.7rem;
