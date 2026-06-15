@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--bg:#0a0a0b;--bg2:#121214;--ink:#f4f3ef;--mut:#a3a197;--gold:#c9a227;--gold2:#d9b94e;--line:rgba(255,255,255,.12);--serif:"Cormorant Garamond",Georgia,serif;--sans:"Inter",system-ui,sans-serif}
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{size:A4;margin:0}
+  body{font-family:var(--sans);font-weight:300;color:var(--ink);background:var(--bg)}
+  .page{width:210mm;height:297mm;background:var(--bg);position:relative;overflow:hidden;page-break-after:always;padding:18mm 16mm}
+  .page:last-child{page-break-after:auto}
+  .eyebrow{font-size:8.5pt;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:500}
+  h1,h2{font-family:var(--serif);font-weight:400;line-height:1.04}
+  .brand{font-weight:600;letter-spacing:.18em;font-size:12pt}
+  .brand .sub{font-size:8pt;letter-spacing:.5em;color:var(--mut)}
+  .gold{color:var(--gold)} .mut{color:var(--mut)}
+  img{display:block;object-fit:cover}
+  .cover{padding:0;display:flex;flex-direction:column}
+  .cover__img{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+  .cover__scrim{position:absolute;inset:0;background:linear-gradient(0deg,#070708 8%,rgba(7,7,8,.35) 55%,rgba(7,7,8,.8))}
+  .cover__top,.cover__mid,.cover__bot{position:relative;z-index:2;padding:18mm 16mm}
+  .cover__mid{margin-top:auto}
+  .cover h1{font-size:46pt;font-weight:300;margin:6pt 0}
+  .cover__sub{font-size:13pt;color:#ddd;max-width:120mm;margin-top:6pt}
+  .cover__bot{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid var(--line)}
+  .cover__bot small{color:var(--mut);font-size:9pt}
+  .ptitle{font-size:26pt;margin:4pt 0 10pt}
+  .lead{font-size:11pt;color:#d7d5cd;max-width:160mm;line-height:1.6}
+  .divider{height:1px;background:var(--line);margin:10pt 0}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8mm}
+  .grid4{display:grid;grid-template-columns:1fr 1fr;gap:6mm;margin-top:8mm}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6mm;margin-top:6mm}
+  .card{border:1px solid var(--line);border-radius:3mm;overflow:hidden;background:var(--bg2)}
+  .card img{width:100%;height:42mm}
+  .card .cap{padding:5mm}
+  .card h3{font-family:var(--serif);font-size:15pt;font-weight:500}
+  .card p{font-size:9.5pt;color:var(--mut);margin-top:2pt;line-height:1.5}
+  .micron{display:flex;gap:8mm;align-items:center;margin-top:10mm;border-top:1px solid var(--line);padding-top:8mm}
+  .micron .big{font-family:var(--serif);font-size:40pt;color:var(--gold);line-height:1}
+  .micron small{display:block;font-size:8pt;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+  .micron p{font-size:11pt;color:#d7d5cd;max-width:110mm}
+  table{width:100%;border-collapse:collapse;margin-top:7mm;font-size:9.5pt}
+  th,td{text-align:left;padding:3.6mm 3mm;border-bottom:1px solid var(--line)}
+  th{font-size:7.5pt;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  td.model{font-family:var(--serif);font-size:13pt;color:var(--ink)}
+  td.flow{color:var(--gold2);font-weight:500}
+  .full{width:100%;border-radius:2mm;border:1px solid var(--line)}
+  .badges{display:grid;grid-template-columns:repeat(3,1fr);gap:6mm;margin-top:8mm}
+  .badge{border:1px solid var(--line);border-radius:3mm;padding:7mm 4mm;text-align:center}
+  .badge .n{font-family:var(--serif);font-size:24pt;color:var(--gold);line-height:1}
+  .badge p{font-size:9pt;color:var(--mut);margin-top:3pt}
+  .val{display:grid;grid-template-columns:1fr 1.2fr;gap:8mm;align-items:center}
+  .val img{width:100%;height:150mm;border-radius:2mm;border:1px solid var(--line);background:#0d0d0f}
+  .vlist{list-style:none;margin-top:6mm}
+  .vlist li{padding:3mm 0 3mm 6mm;position:relative;font-size:10.5pt;color:#d7d5cd;border-bottom:1px solid var(--line)}
+  .vlist li::before{content:"";position:absolute;left:0;top:5mm;width:2mm;height:2mm;border-radius:50%;background:var(--gold)}
+  .vlist b{color:var(--ink)}
+  .spec{display:grid;grid-template-columns:1fr 1fr;gap:0 12mm;margin-top:8mm}
+  .srow{display:flex;justify-content:space-between;gap:4mm;padding:3.4mm 0;border-bottom:1px solid var(--line);font-size:10pt}
+  .srow .k{color:var(--mut)} .srow .v{color:var(--ink);text-align:right;font-weight:500}
+  .contact{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;height:100%;gap:5mm}
+  .contact h2{font-size:34pt;font-weight:300}
+  .contact .slogan{font-family:var(--serif);font-size:16pt;color:var(--gold2)}
+  .contact .wa{font-size:15pt}
+  .contact .legal{font-size:7.5pt;color:#6a675f;max-width:150mm;line-height:1.6;margin-top:8mm}
+  .pageno{position:absolute;bottom:10mm;right:16mm;font-size:8pt;color:#56544e;letter-spacing:.1em}
+  .kicker{position:absolute;top:10mm;left:16mm;font-size:7.5pt;letter-spacing:.3em;text-transform:uppercase;color:#56544e}
+</style>
+</head>
+<body>
+
+<section class="page cover">
+  <img class="cover__img" src="assets/img/pdf/hero_poster.jpg" alt="" />
+  <div class="cover__scrim"></div>
+  <div class="cover__top"><div class="brand">AMERICAN <span class="gold">◆</span> <span class="sub">FILTER</span></div></div>
+  <div class="cover__mid">
+    <p class="eyebrow">Filtro de entrada · a casa inteira</p>
+    <h1>Água filtrada<br/>em todas as torneiras</h1>
+    <p class="cover__sub">Catálogo e ficha técnica do filtro de entrada premium que trata toda a água que entra no seu imóvel.</p>
+  </div>
+  <div class="cover__bot"><div class="brand" style="font-size:10pt">Eleve o nível da sua água.</div><small>tudodefiltro.com.br · WhatsApp (12) 98285-5000</small></div>
+</section>
+
+<section class="page">
+  <span class="kicker">American Filter · Filtro de entrada</span>
+  <p class="eyebrow">O que é</p>
+  <h2 class="ptitle">Uma só instalação. Toda a água tratada.</h2>
+  <p class="lead">O American Filter é um <b>filtro de entrada</b>: instalado no cavalete, junto ao hidrômetro, antes da caixa d'água. Toda a água que entra no imóvel passa por ele — e chega <b>filtrada em todas as torneiras</b> da casa, retendo barro, areia, silte, lodo e ferrugem.</p>
+  <div class="grid4">
+    <div class="card"><img src="assets/img/pdf/benef_banho.jpg" alt="banho" /><div class="cap"><h3>No banho</h3><p>Água sem sedimentos no chuveiro, na ducha e na banheira.</p></div></div>
+    <div class="card"><img src="assets/img/pdf/benef_frutas.jpg" alt="cozinha" /><div class="cap"><h3>Na cozinha</h3><p>Louça, panelas e o preparo dos alimentos, livres de barro e ferrugem.</p></div></div>
+    <div class="card"><img src="assets/img/pdf/benef_dentes.jpg" alt="dentes" /><div class="cap"><h3>Ao escovar os dentes</h3><p>A mesma água tratada na pia do banheiro, todos os dias.</p></div></div>
+    <div class="card"><img src="assets/img/pdf/benef_pet.jpg" alt="pet" /><div class="cap"><h3>Até pro seu pet</h3><p>A mesma água filtrada da casa toda na vasilha dele.</p></div></div>
+  </div>
+  <span class="pageno">02</span>
+</section>
+
+<section class="page">
+  <span class="kicker">American Filter · Tecnologia</span>
+  <p class="eyebrow">Engenharia da água</p>
+  <h2 class="ptitle">A mídia filtrante mais nobre.</h2>
+  <div class="grid2">
+    <div class="card"><img src="assets/img/pdf/quartzo.jpg" alt="quartzo" style="height:55mm" /><div class="cap"><h3>Cristais de quartzo</h3><p>Formam o leito de base que organiza o fluxo e retém os sedimentos suspensos.</p></div></div>
+    <div class="card"><img src="assets/img/pdf/zeolita.jpg" alt="zeólita" style="height:55mm" /><div class="cap"><h3>Zeólita vulcânica</h3><p>Mineral natural de estrutura microporosa — refino dos sedimentos mais finos.</p></div></div>
+  </div>
+  <div class="micron">
+    <div><div class="big">5–15</div><small>mícrons de retenção</small></div>
+    <p>Partículas <b>até 10× mais finas que um fio de cabelo</b>. Barro, areia, silte, lodo e ferrugem ficam pra trás. Corpo em <b>aço inox 304</b> com banho de níquel.</p>
+  </div>
+  <span class="pageno">03</span>
+</section>
+
+<section class="page">
+  <span class="kicker">American Filter · Controle</span>
+  <div class="val">
+    <img src="assets/img/pdf/valvula.jpg" alt="válvula Runxin" />
+    <div>
+      <p class="eyebrow">Válvula Runxin · manual ou automática</p>
+      <h2 class="ptitle">Controle num único comando.</h2>
+      <p class="lead">Referência mundial em controle de filtros. Manual ou automática — você escolhe o nível de praticidade.</p>
+      <ul class="vlist">
+        <li><b>Versão automática</b> — retrolavagem programada por tempo, a partir de 2 m³/h.</li>
+        <li><b>Versão manual (Runxin F56)</b> — monocomando com by-pass: filtragem, retrolavagem e enxágue num giro.</li>
+        <li><b>By-pass integrado</b> — manutenção sem cortar a água do imóvel.</li>
+        <li><b>Êmbolo cerâmico</b> — alta resistência à corrosão e à abrasão.</li>
+      </ul>
+    </div>
+  </div>
+  <span class="pageno">04</span>
+</section>
+
+<section class="page">
+  <span class="kicker">American Filter · A linha</span>
+  <p class="eyebrow">Quatro tamanhos. Uma engenharia.</p>
+  <h2 class="ptitle">A medida certa para o seu consumo.</h2>
+  <img class="full" src="assets/img/pdf/linha_proporcao.jpg" alt="comparativo dos modelos" style="height:100mm;object-fit:contain;background:#0c0c0d" />
+  <table>
+    <tr><th>Modelo</th><th>Polegadas (Ø × alt.)</th><th>Centímetros</th><th>Vazão</th><th>Indicação</th></tr>
+    <tr><td class="model">8×35</td><td>Ø 8" × 35"</td><td class="mut">Ø 20,3 × 88,9 cm</td><td class="flow">1.000 L/h</td><td class="mut">Residências e comércios</td></tr>
+    <tr><td class="model">10×54</td><td>Ø 10" × 54"</td><td class="mut">Ø 25,4 × 137,2 cm</td><td class="flow">2.500 L/h</td><td class="mut">Apartamentos e casas médias</td></tr>
+    <tr><td class="model">12×54</td><td>Ø 12" × 54"</td><td class="mut">Ø 30,5 × 137,2 cm</td><td class="flow">3.500 L/h</td><td class="mut">Casas grandes / alto consumo</td></tr>
+    <tr><td class="model">14×65</td><td>Ø 14" × 65"</td><td class="mut">Ø 35,6 × 165,1 cm</td><td class="flow">5.000 L/h</td><td class="mut">Amplas, comércio, indústria, condomínio</td></tr>
+  </table>
+  <span class="pageno">05</span>
+</section>
+
+<section class="page">
+  <span class="kicker">American Filter · Ficha técnica</span>
+  <p class="eyebrow">Especificações</p>
+  <h2 class="ptitle">Ficha técnica.</h2>
+  <div class="spec">
+    <div>
+      <div class="srow"><span class="k">Tipo</span><span class="v">Filtro de entrada (point-of-entry)</span></div>
+      <div class="srow"><span class="k">Instalação</span><span class="v">Cavalete, antes da caixa d'água</span></div>
+      <div class="srow"><span class="k">Corpo</span><span class="v">Aço inox 304 c/ banho de níquel</span></div>
+      <div class="srow"><span class="k">Mídia filtrante</span><span class="v">Quartzo + zeólita vulcânica</span></div>
+      <div class="srow"><span class="k">Faixa de retenção</span><span class="v">5 a 15 mícrons</span></div>
+      <div class="srow"><span class="k">Retém</span><span class="v">Barro, areia, silte, lodo, ferrugem</span></div>
+    </div>
+    <div>
+      <div class="srow"><span class="k">Pressão de trabalho</span><span class="v">1 a 3 kgf/cm²</span></div>
+      <div class="srow"><span class="k">Válvula</span><span class="v">Runxin manual (F56) ou automática</span></div>
+      <div class="srow"><span class="k">Comando</span><span class="v">Monocomando com by-pass</span></div>
+      <div class="srow"><span class="k">Retrolavagem auto.</span><span class="v">Por tempo, a partir de 2 m³/h</span></div>
+      <div class="srow"><span class="k">Certificação</span><span class="v">INMETRO</span></div>
+      <div class="srow"><span class="k">Garantia</span><span class="v">10 anos (a maior do Brasil)</span></div>
+    </div>
+  </div>
+  <table>
+    <tr><th>Modelo</th><th>Ø × Altura (pol)</th><th>Ø × Altura (cm)</th><th>Vazão</th><th>Pressão</th></tr>
+    <tr><td class="model">8×35</td><td>8" × 35"</td><td class="mut">20,3 × 88,9</td><td class="flow">1.000 L/h</td><td>1–3 kgf/cm²</td></tr>
+    <tr><td class="model">10×54</td><td>10" × 54"</td><td class="mut">25,4 × 137,2</td><td class="flow">2.500 L/h</td><td>1–3 kgf/cm²</td></tr>
+    <tr><td class="model">12×54</td><td>12" × 54"</td><td class="mut">30,5 × 137,2</td><td class="flow">3.500 L/h</td><td>1–3 kgf/cm²</td></tr>
+    <tr><td class="model">14×65</td><td>14" × 65"</td><td class="mut">35,6 × 165,1</td><td class="flow">5.000 L/h</td><td>1–3 kgf/cm²</td></tr>
+  </table>
+  <span class="pageno">06</span>
+</section>
+
+<section class="page">
+  <span class="kicker">American Filter · Confiança</span>
+  <p class="eyebrow">Certificação &amp; garantia</p>
+  <h2 class="ptitle">A confiança não se promete. Comprova-se.</h2>
+  <div class="badges">
+    <div class="badge"><div class="n">10</div><p>anos de garantia</p></div>
+    <div class="badge"><div class="n">#1</div><p>a maior garantia do Brasil</p></div>
+    <div class="badge"><div class="n" style="font-size:15pt;padding-top:5pt">INMETRO</div><p>certificação máxima</p></div>
+  </div>
+  <div class="divider" style="margin-top:12mm"></div>
+  <p class="eyebrow">Onde usar</p>
+  <div class="grid3">
+    <div class="card"><img src="assets/img/pdf/install-flores.jpg" alt="residências" style="height:38mm" /><div class="cap"><h3 style="font-size:13pt">Residências</h3></div></div>
+    <div class="card"><img src="assets/img/pdf/install-condominio.jpg" alt="condomínios" style="height:38mm" /><div class="cap"><h3 style="font-size:13pt">Condomínios</h3></div></div>
+    <div class="card"><img src="assets/img/pdf/app_industria.jpg" alt="indústria" style="height:38mm" /><div class="cap"><h3 style="font-size:13pt">Indústria &amp; Comércio</h3></div></div>
+  </div>
+  <span class="pageno">07</span>
+</section>
+
+<section class="page">
+  <div class="contact">
+    <div class="brand" style="font-size:18pt">AMERICAN <span class="gold">◆</span> <span class="sub" style="font-size:11pt">FILTER</span></div>
+    <p class="slogan">Eleve o nível da sua água.</p>
+    <h2>Fale com um especialista</h2>
+    <p class="wa gold">WhatsApp (12) 98285-5000</p>
+    <p class="mut">tudodefiltro.com.br · paulinhotdf.github.io/american-filter-site</p>
+    <p class="legal">American Filter é um filtro de entrada (point-of-entry) que retém sedimentos como barro, areia, silte, lodo e ferrugem (partículas de 5 a 15 mícrons). Não remove bactérias, vírus ou substâncias dissolvidas e não substitui purificadores de água para consumo. Para água de poço, consulte nossa linha específica. · Uma marca Tudo de Filtro.</p>
+  </div>
+</section>
+
+</body>
+</html>

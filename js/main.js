@@ -32,10 +32,10 @@
 
   // ---- Linha de produtos ----
   var MODELS = [
-    {name:"8×35",  dim:'Ø 8" &nbsp;·&nbsp; 35" de altura',  flow:"linha compacta · ponto de uso", desc:"Para ponto de uso e residências pequenas. Discreto e eficiente.", d:8, h:35},
-    {name:"10×54", dim:'Ø 10" &nbsp;·&nbsp; 54" de altura', flow:"até 2.500 litros/hora",          desc:"Equilíbrio para apartamentos e casas de porte médio, com fluxo constante.", d:10, h:54},
-    {name:"12×54", dim:'Ø 12" &nbsp;·&nbsp; 54" de altura', flow:"até 3.500 litros/hora",          desc:"Para casas grandes e alto consumo, vários pontos sem queda de pressão.", d:12, h:54},
-    {name:"14×65", dim:'Ø 14" &nbsp;·&nbsp; 65" de altura', flow:"até 5.000 litros/hora",          desc:"A força máxima da linha. Residências amplas, comércio, indústria e condomínio.", d:14, h:65}
+    {name:"8×35",  dim:'Ø 8" × 35" &nbsp;·&nbsp; Ø 20,3 × 88,9 cm',   flow:"até 1.000 litros/hora", desc:"Ideal para residências e comércios.", d:8, h:35},
+    {name:"10×54", dim:'Ø 10" × 54" &nbsp;·&nbsp; Ø 25,4 × 137,2 cm', flow:"até 2.500 litros/hora", desc:"Apartamentos e casas de porte médio, com fluxo constante.", d:10, h:54},
+    {name:"12×54", dim:'Ø 12" × 54" &nbsp;·&nbsp; Ø 30,5 × 137,2 cm', flow:"até 3.500 litros/hora", desc:"Casas grandes e alto consumo, vários pontos sem queda de pressão.", d:12, h:54},
+    {name:"14×65", dim:'Ø 14" × 65" &nbsp;·&nbsp; Ø 35,6 × 165,1 cm', flow:"até 5.000 litros/hora", desc:"Residências amplas, comércio, indústria e condomínio.", d:14, h:65}
   ];
   var mName=document.getElementById("mName"), mDim=document.getElementById("mDim"),
       mFlow=document.getElementById("mFlow"), mDesc=document.getElementById("mDesc");

@@ -117,19 +117,33 @@ em{font-style:italic;color:var(--gold-soft)}
   background:radial-gradient(circle at 50% 35%,#1b1b1f,#0b0b0c 70%);overflow:hidden;cursor:grab}
 .viewer:active{cursor:grabbing}
 .viewer canvas{display:block;width:100%!important;height:100%!important}
-.viewer__fallback{position:absolute;inset:0;margin:auto;height:88%;width:auto;object-fit:contain;
-  filter:drop-shadow(0 30px 50px rgba(0,0,0,.6))}
+.viewer__fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .viewer__hint{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:.7rem;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--mut);pointer-events:none}
+  letter-spacing:.2em;text-transform:uppercase;color:var(--mut);pointer-events:none;display:none}
+.viewer.is-3d .viewer__hint{display:block}
+.viewer.is-3d .viewer__fallback{display:none}
 .model__name{font-family:var(--serif);font-size:clamp(2.6rem,6vw,4.4rem);font-weight:500;line-height:1}
 .model__dim{color:var(--ink);margin-top:.6rem;letter-spacing:.02em}
 .model__flow{color:var(--gold);font-weight:500;margin-top:.2rem;font-size:1.1rem}
+.model__press{color:var(--mut);font-size:.85rem;margin-top:.25rem}
 .model__desc{color:var(--mut);margin:1rem 0 1.8rem;max-width:34ch}
 .model__tabs{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.8rem}
 .mtab{font-family:var(--sans);font-size:.86rem;letter-spacing:.06em;color:var(--mut);
   background:rgba(255,255,255,.03);border:1px solid var(--line);padding:.7em 1.1em;border-radius:3px;cursor:pointer;transition:.3s}
 .mtab:hover{color:var(--ink);border-color:rgba(255,255,255,.3)}
 .mtab.is-active{color:#0a0a0b;background:var(--gold);border-color:var(--gold);font-weight:600}
+
+/* FICHA TÉCNICA */
+.ficha__wrap{overflow-x:auto}
+.ficha table{width:100%;border-collapse:collapse;font-size:.95rem;min-width:680px}
+.ficha th,.ficha td{text-align:left;padding:1rem .9rem;border-bottom:1px solid var(--line)}
+.ficha th{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.ficha td:first-child{font-family:var(--serif);font-size:1.2rem;color:var(--ink)}
+.ficha .fflow{color:var(--gold-soft);font-weight:500}
+.ficha__specs{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:.2rem 2rem;margin:2.4rem 0;
+  border-top:1px solid var(--line);padding-top:1.6rem}
+.ficha__specs li{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.ficha__specs .k{color:var(--mut)} .ficha__specs .v{color:var(--ink);text-align:right;font-weight:500}
 
 /* GARANTIA */
 .garantia{background:linear-gradient(180deg,#0d0d0f,#070708);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
